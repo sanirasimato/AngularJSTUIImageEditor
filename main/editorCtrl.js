@@ -8,7 +8,7 @@
                 () => 
                 {
                     
-
+                    var imageLoaded = false; // added by .sanira
                     var supportingFileAPI = !!(window.File && window.FileList && window.FileReader);
                     var rImageType = /data:(image\/.+);base64,/;
                     var shapeOptions = {};
@@ -106,7 +106,7 @@
                     // Image editor
                     var imageEditor = new tui.ImageEditor('.tui-image-editor', {
                         cssMaxWidth: 500,
-                        cssMaxHeight: 500,
+                        cssMaxHeight: 300,
                         selectionStyle: {
                             cornerSize: 20,
                             rotatingPointOffset: 70
@@ -411,6 +411,8 @@
                         imageEditor.crop(imageEditor.getCropzoneRect()).then(() => {
                             imageEditor.stopDrawingMode();
                             resizeEditor();
+                            imageLoaded = true;
+                            console.log(imageLoaded);
                         });
                     });
 
@@ -478,12 +480,13 @@
 
                         file = event.target.files[0];
                         imageEditor.loadImageFromFile(file).then(result => {
-                            console.log(result);
                             // added by .sanira
                             imageEditor.startDrawingMode('CROPPER');
                             $displayingSubMenu.hide();
                             $displayingSubMenu = $cropSubMenu.show();
                             imageEditor.clearUndoStack();
+
+                            console.log(result);
                         });
                     });
 

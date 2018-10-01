@@ -5,6 +5,7 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    min-width: 500px;
 }
 .tui-image-editor{
     background-color: #aaa;    
@@ -24,6 +25,9 @@
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
+}
+.menu li{
+    width: 20px;
 }
 .logo {
     margin: 0 auto;
@@ -59,6 +63,7 @@
 .menu-item.disabled {
     cursor: default;
     color: #BFBEBE;
+    opacity: 0.5;
 }
 .align-left-top {
     text-align: left;

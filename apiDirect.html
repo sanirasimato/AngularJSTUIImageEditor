@@ -2,20 +2,80 @@
     <div id="tui-image-editor-container" class="tui-image-editor"></div>
     <div class="tui-image-editor-controls">
         
-        <ul class="menu">
-            <li class="menu-item disabled" id="btn-undo">Undo</li>
-            <li class="menu-item disabled" id="btn-redo">Redo</li>
-            <li class="menu-item" id="btn-clear-objects">ClearObjects</li>
-            <li class="menu-item" id="btn-remove-active-object">RemoveActiveObject</li>
+        <ul class="menu" ng-if="imageLoaded">
+            <li class="menu-item disabled" id="btn-undo">
+                <img src="./icons/Undo.svg" alt="Undo">
+                <!-- <object type="image/svg+xml" data="./icons/Undo.svg">
+                    Undo
+                </object> -->
+            </li>
+            <li class="menu-item disabled" id="btn-redo">
+                <img src="./icons/Re-do.svg" alt="Redo">
+                <!-- <object type="image/svg+xml" data="./icons/Re-do.svg">
+                    Redo
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-clear-objects">
+                <img src="./icons/Clear.svg" alt="ClearObjects">
+                <!-- <object type="image/svg+xml" data="./icons/Clear.svg">
+                    ClearObjects
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-remove-active-object">
+                <img src="./icons/Delete.svg" alt="RemoveActiveObject">
+                <!-- <object type="image/svg+xml" data="./icons/Delete.svg">
+                    RemoveActiveObject
+                </object> -->
+            </li>
             <!-- <li class="menu-item" id="btn-crop">Crop</li> -->
-            <li class="menu-item" id="btn-flip">Flip</li>
-            <li class="menu-item" id="btn-rotation">Rotation</li>
-            <li class="menu-item" id="btn-draw-line">DrawLine</li>
-            <li class="menu-item" id="btn-draw-shape">Shape</li>
-            <li class="menu-item" id="btn-add-icon">Icon</li>
-            <li class="menu-item" id="btn-text">Text</li>
-            <li class="menu-item" id="btn-mask-filter">Mask</li>
-            <li class="menu-item" id="btn-image-filter">Filter</li>
+            <li class="menu-item" id="btn-flip">
+                <img src="./icons/Flip.svg" alt="Flip">
+                <!-- <object type="image/svg+xml" data="./icons/Flip.svg">
+                    Flip
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-rotation">
+                <img src="./icons/Rotate.svg" alt="Rotation">
+                <!-- <object type="image/svg+xml" data="./icons/Rotate.svg">
+                    Rotation
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-draw-line">
+                <img src="./icons/Draw.svg" alt="DrawLine">
+                <!-- <object type="image/svg+xml" data="./icons/Draw.svg">
+                    DrawLine
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-draw-shape">
+                <img src="./icons/Shapes.svg" alt="Shape">
+                <!-- <object type="image/svg+xml" data="./icons/Shapes.svg">
+                    Shape
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-add-icon">
+                <img src="./icons/Icon.svg" alt="Icon">
+                <!-- <object type="image/svg+xml" data="./icons/Icon.svg">
+                    Icon
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-text">
+                <img src="./icons/Text.svg" alt="Text">
+                <!-- <object type="image/svg+xml" data="./icons/Text.svg">
+                    Text
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-mask-filter">
+                <img src="./icons/Mask.svg" alt="Mask">
+                <!-- <object type="image/svg+xml" data="./icons/Mask.svg">
+                    Mask
+                </object> -->
+            </li>
+            <li class="menu-item" id="btn-image-filter">
+                <img src="./icons/Filter.svg" alt="Filter">
+                <!-- <object type="image/svg+xml" data="./icons/Filter.svg">
+                    Filter
+                </object> -->
+            </li>
         </ul>
         <div class="sub-menu-container" id="crop-sub-menu">
             <ul class="menu">
@@ -218,7 +278,7 @@
         <div class="header">
             <!-- <img class="logo" src="img/TOAST UI Component.png"> -->
             <!-- <span class="name"> Image Editor</span> -->
-            <ul class="menu">
+            <ul class="load-menu">
                 <li class="menu-item border input-wrapper">
                     Load
                     <input type="file" accept="image/*" id="input-image-file">
