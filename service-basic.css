@@ -29,6 +29,13 @@
 .menu li{
     width: 20px;
 }
+.main-menu-btn{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    padding: 0;
+}
 .logo {
     margin: 0 auto;
     width: 300px;

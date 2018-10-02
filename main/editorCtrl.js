@@ -298,7 +298,8 @@
                         undoStackChanged: function (length) {
                             if (length) {
                                 $btnUndo.removeClass('disabled');
-                            } else {
+                            }
+                            else {
                                 $btnUndo.addClass('disabled');
                             }
                             resizeEditor();
@@ -318,7 +319,7 @@
                         },
                         addText: function (pos) {
                             imageEditor.addText('Double Click', {
-                                position: pos.originPosition
+                                position: pos.originPosition,
                             }).then(objectProps => {
                                 console.log(objectProps);
                             });
@@ -357,7 +358,7 @@
                     $btnsActivatable.on('click', function () {
                         $(this).addClass('active');
                     });
-
+                    
                     $btnUndo.on('click', function () {
                         $displayingSubMenu.hide();
 
@@ -390,10 +391,17 @@
                         $displayingSubMenu = $cropSubMenu.show();
                     });
 
+                    var count = 0;
                     $btnFlip.on('click', function () {
                         imageEditor.stopDrawingMode();
                         $displayingSubMenu.hide();
-                        $displayingSubMenu = $flipSubMenu.show();
+                        console.log($displayingSubMenu);
+                        if (count%2==0){
+                            $displayingSubMenu = $flipSubMenu.show();
+                        }else{
+                            $displayingSubMenu = $flipSubMenu.hide();
+                        }
+                        count++;
                     });
 
                     $btnRotation.on('click', function () {
@@ -411,8 +419,6 @@
                         imageEditor.crop(imageEditor.getCropzoneRect()).then(() => {
                             imageEditor.stopDrawingMode();
                             resizeEditor();
-                            imageLoaded = true;
-                            console.log(imageLoaded);
                         });
                     });
 
@@ -484,8 +490,18 @@
                             imageEditor.startDrawingMode('CROPPER');
                             $displayingSubMenu.hide();
                             $displayingSubMenu = $cropSubMenu.show();
-                            imageEditor.clearUndoStack();
 
+                            $(document).keypress(function (e) {
+                                if (e.which == 13) {
+                                    imageEditor.crop(imageEditor.getCropzoneRect()).then(() => {
+                                        imageEditor.stopDrawingMode();
+                                        resizeEditor();
+                                    });
+                                }
+                            });
+
+                            imageEditor.clearUndoStack();
+                            
                             console.log(result);
                         });
                     });

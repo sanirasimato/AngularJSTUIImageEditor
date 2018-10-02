@@ -8,8 +8,8 @@
             return{
                 showImageEditor: function (){
                     return $mdDialog.show({
-                        controller: 'editorCtrl',
-                        templateUrl: 'apiDirect.html',
+                        controller: 'editorUICtrl',
+                        templateUrl: 'editor.html',
                         clickOutsideToClose: true
                     });
                 }
