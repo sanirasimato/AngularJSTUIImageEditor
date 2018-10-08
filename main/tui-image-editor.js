@@ -5016,7 +5016,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @returns {Object} - extends selectionStyle option
 	     */
 
-
+		// ui cropselection styles (added by .sanira)
 	    _createClass(Ui, [{
 	        key: 'setUiDefaultSelectionStyle',
 	        value: function setUiDefaultSelectionStyle(option) {
@@ -5187,8 +5187,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    path: '',
 	                    name: ''
 	                },
-	                menuIconPath: '',
-	                menu: ['crop', 'flip', 'rotate', 'draw', 'shape', 'icon', 'text', 'mask', 'filter'],
+					menuIconPath: '',
+					// This is where menu initialize (added by .sanira)
+	                menu: ['crop','flip', 'rotate', 'draw', 'shape', 'icon', 'text', 'mask', 'filter'],
 	                initMenu: false,
 	                uiSize: {
 	                    width: '100%',
@@ -5358,7 +5359,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_addLoadEvent',
 	        value: function _addLoadEvent() {
-	            var _this4 = this;
+				var _this4 = this;
+				
+				// added by .sanira
+				console.log("lela");
+				console.log(_this4);
 
 	            _tuiCodeSnippet2.default.forEach(this._els.load, function (element) {
 	                element.addEventListener('change', function (event) {
@@ -5514,6 +5519,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         */
 
 	    }, {
+			// added by .sanira _initMenu
 	        key: '_initMenu',
 	        value: function _initMenu() {
 	            if (this.options.initMenu) {
@@ -5562,10 +5568,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var left = 0;
 	            var right = 0;
 
+				// menu bar position(added by .sanira) 
 	            if (this.submenu) {
 	                switch (menuBarPosition) {
 	                    case 'bottom':
-	                        bottom += 150;
+	                        bottom += 150; // changed value (150)
 	                        break;
 	                    case 'top':
 	                        top += 150;
@@ -11764,7 +11771,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            initLoadImage: function initLoadImage(imagePath, imageName) {
 	                return _this.loadImageFromURL(imagePath, imageName).then(function (sizeValue) {
 	                    exitCropOnAction();
-	                    _this.ui.initializeImgUrl = imagePath;
+						_this.ui.initializeImgUrl = imagePath;
+						console.log("loadImage");
 	                    _this.ui.resizeEditor({ imageSize: sizeValue });
 	                    _this.clearUndoStack();
 	                });
@@ -11784,7 +11792,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            reset: function reset() {
 	                exitCropOnAction();
 	                _this.loadImageFromURL(_this.ui.initializeImgUrl, 'resetImage').then(function (sizeValue) {
-	                    exitCropOnAction();
+						exitCropOnAction();
+						// added by .sanira
+						console.log("start crop here");
 	                    _this.ui.resizeEditor({ imageSize: sizeValue });
 	                    _this.clearUndoStack();
 	                });
@@ -11808,7 +11818,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                _this.ui.initializeImgUrl = URL.createObjectURL(file);
 	                _this.loadImageFromFile(file).then(function () {
-	                    exitCropOnAction();
+						exitCropOnAction();
+						// added by .sanira
+						console.log("add crop here too");
+						document.getElementById("tie-btn-crop").click();
+
 	                    _this.clearUndoStack();
 	                    _this.ui.resizeEditor();
 	                })['catch'](function (message) {
@@ -12041,7 +12055,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, this._commonAction());
 	    },
 
-
+		// crop action starts in UI(added by .sanira)
 	    /**
 	     * Crop Action
 	     * @returns {Object} actions for ui crop
@@ -12049,7 +12063,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    _cropAction: function _cropAction() {
 	        var _this8 = this;
-
 	        return (0, _tuiCodeSnippet.extend)({
 	            crop: function crop() {
 					var cropRect = _this8.getCropzoneRect();
@@ -12140,6 +12153,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this11.ui.changeDeleteAllButtonEnabled(true);
 
 	                if (obj.type === 'cropzone') {
+						// added by .sanira
+						console.log("lol");
 	                    _this11.ui.crop.changeApplyButtonStatus(true);
 	                } else if (['rect', 'circle', 'triangle'].indexOf(obj.type) > -1) {
 	                    _this11.stopDrawingMode();

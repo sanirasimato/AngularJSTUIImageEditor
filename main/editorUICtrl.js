@@ -21,7 +21,7 @@
                         cssMaxWidth: 700,
                         cssMaxHeight: 300
                     });
-
+                    // console.log(imageEditor.ui.initMenu);
                     imageEditor.setCropRect(400,200);
 
                     window.onresize = function () {
@@ -30,5 +30,6 @@
 
                 }
                 , 1000)
+                
         }]);
 })();
