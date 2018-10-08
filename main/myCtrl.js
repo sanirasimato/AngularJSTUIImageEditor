@@ -5,8 +5,8 @@
     angular.module('app')
         .controller('myCtrl', ['$scope','tui', function ($scope, tui) {
 
-            $scope.openDialog = function(){
-                tui.showImageEditor();
+            $scope.openDialog = function(width,height){
+                tui.showImageEditor(width,height);
             }
         }]);
 })();

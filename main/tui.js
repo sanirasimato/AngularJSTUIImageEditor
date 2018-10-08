@@ -6,11 +6,16 @@
         .factory('tui', ['$mdDialog', function ($mdDialog) {
             
             return{
-                showImageEditor: function (){
+                showImageEditor: function (_width,_height){
                     return $mdDialog.show({
                         controller: 'editorUICtrl',
                         templateUrl: 'editor.html',
-                        clickOutsideToClose: true
+                        clickOutsideToClose: true,
+
+                        locals: {
+                            width: _width,
+                            height: _height
+                        }
                     });
                 }
                 // openDialog : function () {

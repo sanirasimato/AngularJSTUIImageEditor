@@ -3,7 +3,10 @@
     "use strict";
 
     angular.module('app')
-        .controller('editorUICtrl', [function () {
+        .controller('editorUICtrl', ['width', 'height', function (width, height) {
+            
+            console.log(width+' , '+height);
+            
             setTimeout(
                 () => {
 
@@ -22,7 +25,7 @@
                         cssMaxHeight: 300
                     });
                     // console.log(imageEditor.ui.initMenu);
-                    imageEditor.setCropRect(400,200);
+                    imageEditor.setCropRect(width,height);
 
                     window.onresize = function () {
                         imageEditor.ui.resizeEditor();
