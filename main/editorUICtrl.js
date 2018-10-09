@@ -3,7 +3,7 @@
     "use strict";
 
     angular.module('app')
-        .controller('editorUICtrl', ['width', 'height', function (width, height) {
+        .controller('editorUICtrl', [function ($scope, $mdDialog, initialData, width, height) {
             
             console.log(width+' , '+height);
             
