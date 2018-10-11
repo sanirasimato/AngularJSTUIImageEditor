@@ -13,17 +13,21 @@
             $scope.file_changed = function (element,width,height) {
 
                 var file = element.files[0];
-                var reader = new FileReader();
-                var fileUrl;
+                tui.callImageEditor(file,width,height);
+                
+                // var fileUrl = tui.convertFileToUrl(file);
+                // var file = element.files[0];
+                // var reader = new FileReader();
+                // var fileUrl;
 
-                reader.addEventListener("load", function(){
-                    fileUrl = reader.result;
-                    tui.showImageEditor(fileUrl, width, height);
-                });
+                // reader.addEventListener("load", function(){
+                //     fileUrl = reader.result;
+                //     tui.showImageEditor(fileUrl, width, height);
+                // });
 
-                if (file) {
-                    reader.readAsDataURL(file);
-                }
+                // if (file) {
+                //     reader.readAsDataURL(file);
+                // }
             };
         }]);
 })();
