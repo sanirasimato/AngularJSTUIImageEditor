@@ -5,27 +5,22 @@
     angular.module('app')
         .factory('tui', ['$mdDialog', function ($mdDialog) {
             
-            return{
-                showImageEditor: function (_width,_height){
-                    return $mdDialog.show({
-                        controller: 'editorUICtrl',
-                        templateUrl: 'editor.html',
-                        clickOutsideToClose: true,
-
-                        locals: {
-                            width: _width,
-                            height: _height
-                        }
-                    });
-                }
-                // openDialog : function () {
-                //     return $mdDialog.show({
-                //         controller: 'editorCtrl',
-                //         template: '../editor.html',
-                //         clickOutsideToClose: true
-                //     });
-                // }
+            showImageEditor =  function (_fileUrl, _width, _height) {
+                return $mdDialog.show({
+                    controller: 'editorUICtrl',
+                    templateUrl: 'editor.html',
+                    clickOutsideToClose: true,
+                    locals: {
+                        fileUrl: _fileUrl,
+                        width: _width,
+                        height: _height
+                    },
+                });
             }
-            
+            return{
+                callImageEditor: function (_fileUrl, _width, _height) {
+                    tui.showImageEditor(_fileUrl, _width, _height);
+                },
+            }    
         }]);
 })();

@@ -2057,13 +2057,46 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        /**
-	         * Get image name
+	         * added by .sanira
+			 * download image
+			 * 
 	         * @returns {string} image name
 	         * @example
-	         * console.log(imageEditor.getImageName());
 	         */
 
-	    }, {
+			}, {
+				key: 'download',
+				value: function download() {
+					var dataURL = _this.toDataURL();
+					var imageName = _this.getImageName();
+					var blob = void 0,
+						type = void 0,
+						w = void 0;
+
+					if (_util2.default.isSupportFileApi() && window.saveAs) {
+						blob = _util2.default.base64ToBlob(dataURL);
+						type = blob.type.split('/')[1];
+						if (imageName.split('.').pop() !== type) {
+							imageName += '.' + type;
+						}
+						saveAs(blob, imageName); // eslint-disable-line
+					} else {
+						return dataURL;
+						// w = window.open();
+						// w.document.body.innerHTML = '<img src=\'' + dataURL + '\'>';
+					}
+					console.log(this);
+					// this.getComponent(components.CROPPER).setCropRect(width, height);
+				}
+
+				/**
+				 * Get image name
+				 * @returns {string} image name
+				 * @example
+				 * console.log(imageEditor.getImageName());
+				 */
+
+			}, {
 	        key: 'getImageName',
 	        value: function getImageName() {
 	            return this._graphics.getImageName();
@@ -5346,7 +5379,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            _tuiCodeSnippet2.default.forEach(this._els.download, function (element) {
 	                element.addEventListener('click', function () {
-	                    _this3._actions.main.download();
+						// _this3._actions.main.download();
+						console.log(_this3._actions.main.download());
 	                });
 	            });
 	        }
@@ -11820,7 +11854,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this.loadImageFromFile(file).then(function () {
 						exitCropOnAction();
 						// added by .sanira
-						console.log("add crop here too");
+						// console.log("add crop here too");
 						document.getElementById("tie-btn-crop").click();
 
 	                    _this.clearUndoStack();
@@ -11844,8 +11878,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                    saveAs(blob, imageName); // eslint-disable-line
 	                } else {
-	                    w = window.open();
-	                    w.document.body.innerHTML = '<img src=\'' + dataURL + '\'>';
+						return dataURL;
+	                    // w = window.open();
+	                    // w.document.body.innerHTML = '<img src=\'' + dataURL + '\'>';
 	                }
 	            }
 	        }, this._commonAction());
@@ -13977,12 +14012,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        /**
-	         * Save image(background) of canvas
-	         * @param {string} name - Name of image
-	         * @param {?fabric.Image} canvasImage - Fabric image instance
+			 * added by .sanira
+			 * 
+	         * download image(background) of canvas
+	         * @param {} 
+	         * @param {} canvasImage - Fabric image instance
 	         */
 
-	    }, {
+		}, {
+				key: 'download',
+				value: function download() {
+					var dataURL = _this.toDataURL();
+					var imageName = _this.getImageName();
+					var blob = void 0,
+						type = void 0,
+						w = void 0;
+
+					if (_util2.default.isSupportFileApi() && window.saveAs) {
+						blob = _util2.default.base64ToBlob(dataURL);
+						type = blob.type.split('/')[1];
+						if (imageName.split('.').pop() !== type) {
+							imageName += '.' + type;
+						}
+						saveAs(blob, imageName); // eslint-disable-line
+					} else {
+						return dataURL;
+						// w = window.open();
+						// w.document.body.innerHTML = '<img src=\'' + dataURL + '\'>';
+					}
+					console.log(this);
+					// this.getComponent(components.CROPPER).setCropRect(width, height);
+				}
+
+				/**
+				 * Save image(background) of canvas
+				 * @param {string} name - Name of image
+				 * @param {?fabric.Image} canvasImage - Fabric image instance
+				 */
+
+		}, {
 	        key: 'setCanvasImage',
 	        value: function setCanvasImage(name, canvasImage) {
 	            if (canvasImage) {

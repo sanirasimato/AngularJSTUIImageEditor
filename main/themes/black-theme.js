@@ -17,6 +17,7 @@ var blackTheme = {
     'loadButton.color': '#222',
     'loadButton.fontFamily': 'NotoSans, sans-serif',
     'loadButton.fontSize': '12px',
+    'loadButton.display': 'none', // added by .sanira
 
     // download button
     'downloadButton.backgroundColor': '#fdba3b',

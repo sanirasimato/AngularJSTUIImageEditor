@@ -1,20 +1,16 @@
-
 (function () {
     "use strict";
 
     angular.module('app')
-        .controller('editorUICtrl', ['width', 'height', function (width, height) {
-            
-            console.log(width+' , '+height);
-            
+        .controller('editorUICtrl', ['fileUrl', 'width', 'height', function (fileUrl, width, height) {
+
             setTimeout(
                 () => {
-
                     var imageEditor = new tui.ImageEditor('#tui-image-editor-container', {
                         includeUI: {
                             loadImage: {
-                                menu: ['shape'],
-                                path: './img/test.png',
+                                path: fileUrl,
+                                // path: './img/test.png',
                                 name: 'SampleImage'
                             },
                             theme: blackTheme, // or whiteTheme
@@ -24,8 +20,12 @@
                         cssMaxWidth: 700,
                         cssMaxHeight: 300
                     });
-                    // console.log(imageEditor.ui.initMenu);
-                    imageEditor.setCropRect(width,height);
+
+                    if (width != undefined && height != undefined) {
+                        console.log(width + ' , ' + height)
+                        imageEditor.setCropRect(width, height);
+                    }
+
 
                     window.onresize = function () {
                         imageEditor.ui.resizeEditor();
@@ -33,6 +33,6 @@
 
                 }
                 , 1000)
-                
+
         }]);
 })();
