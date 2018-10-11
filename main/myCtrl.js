@@ -18,7 +18,7 @@
 
                 reader.addEventListener("load", function(){
                     fileUrl = reader.result;
-                    tui.callImageEditor(fileUrl, width, height);
+                    tui.showImageEditor(fileUrl, width, height);
                 });
 
                 if (file) {
