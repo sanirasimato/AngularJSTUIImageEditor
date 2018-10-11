@@ -6,6 +6,7 @@
     <title>ImageEditor</title>
     <link rel="stylesheet" href="./bower_components/tui-color-picker/dist/tui-color-picker.css">
     <link rel="stylesheet" href="./tui-image-editor.css">
+    <link rel="stylesheet" href="main.css">
     <!-- <link rel="stylesheet" href="./service-basic.css"> -->
     <!-- <link type="text/css" href="./bower_components/tui-image-editor/dist/tui-image-editor.css" rel="stylesheet"> -->
 
@@ -48,8 +49,14 @@
    
     <!-- <input id="image" type="file" onchange="file_changed(event,400,200)"> -->
     <!-- <input type="file" id="myFile"> -->
-    <input ng-model="photo" onchange="angular.element(this).scope().file_changed(this,100,100)" type="file" accept="image/*" />
     <!-- <md-button ng-click="openDialog()">Open</md-button> -->
+    <div class="container">
+        <div class="upload-btn">
+            <label for="imgUp">Upload</label>
+            <input id="imgUp" ng-model="photo" onchange="angular.element(this).scope().file_changed(this,100,100)" type="file"
+                accept="image/*" />
+        </div>
+    </div>
 
     <script src="./bower_components/fabric/dist/fabric.js"></script>
     <script src="./bower_components/tui-code-snippet/dist/tui-code-snippet.js"></script>
